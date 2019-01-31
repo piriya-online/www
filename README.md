@@ -1,3 +1,3 @@
 ## Getting Started
 
-* Add file <a href="https://raw.githubusercontent.com/piriya-online/backend/54875aef051f0878b1b773ec9c71e7691dc08adc/config.js" target="_blank">config.js</a> to your project.
+* Add file <a href="https://raw.githubusercontent.com/piriya-online/www/43f47a18026058fe83604092947ab5374d2d7fd3/config.js" target="_blank">config.js</a> to your project.
