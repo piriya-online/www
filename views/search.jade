@@ -1,0 +1,63 @@
+extends layout
+
+block content
+	if data.product != '' && data.product != undefined
+		.row.pinRow
+			each values in data.product
+				.pinItem
+					.pinBox.pinWell.margin-bottom-15
+						a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product))
+							if values.youtube
+								.float_div_right.padding-10
+									i.fa.fa-youtube-square.fa-3x.text-danger
+							img.img-product(id=values.product,value-id=values.product).img-responsive.img-popover(src='https://src.remaxthailand.co.th/img/Remax/product/default.jpg')
+						
+						.message
+							.margin-top-5.margin-bottom-5
+								.text-center
+									if values.isNew
+										img(src='https://src.remaxthailand.co.th/img/Remax/web/gif/new.gif')
+									if values.isStockUpdate
+										img(src='https://src.remaxthailand.co.th/img/Remax/web/gif/update.gif')
+									b.text-info
+										a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product)) #{values.name}
+								if values.sku != '' && values.sku.substr(0,1) == 'D'
+									.margin-top-5.pull-left #{values.sku}
+									.margin-top-5.pull-right.no-wrap
+										if values.warranty > 0
+											if values.warranty >= 365
+												| รับประกัน #{values.warranty/365} ปี
+											else if values.warranty >= 30
+												| รับประกัน #{values.warranty/30} เดือน
+											else
+												| รับประกัน #{values.warranty} วัน
+							.clearfix.line.margin-bottom-5
+							.pull-left.no-wrap
+								if values.stock <= 0 && values.categoryId != '27'
+									b.text-danger สินค้าหมด 
+									| : 
+								| ราคาปลีก 								
+								if values.price == 0
+									b.text-danger ยังไม่กำหนด
+								else
+									b.text-danger.numberFormat(data-value="#{values.price}")
+								if values.price != 0
+									|  บาท
+							.pull-right.no-wrap
+								| ราคาส่ง(3ชิ้น)							
+								if values.price1 == 0
+									b.text-danger ยังไม่กำหนด
+								else
+									b.text-danger.numberFormat(data-value="#{values.price1}")
+								if values.price1 != 0
+									|  บาท
+
+							.clearfix
+	else
+		.text-center
+			h3.text-warning
+				i.fa.fa-exclamation-triangle
+				|  ไม่พบข้อมูล
+	p#scroll-top
+		a(href='#')
+			i.fa.fa-chevron-up

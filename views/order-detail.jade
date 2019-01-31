@@ -1,0 +1,127 @@
+extends layout
+
+block content
+	#dv-load.text-center
+		i.fa.fa-spinner.fa-pulse.fa-5x
+	.dev-content.hidden.pinBox.pinWell.padding-10
+		h1.page-header.font-28.margin-top-10.margin-bottom-15.text-center สถานที่เก็บสินค้า
+		.row.padding-10
+			.col-md-6
+				.col-md-6.col-md-offset-3
+					form.form-horizontal.padding-10
+						.form-group
+							.input-group
+								input#txt-order.form-control.input-value(type="text", placeholder="หมายเลขคำสั่งซื้อ...")
+								span.input-group-btn
+									button.btn.btn-primary.btn-order(type="button")
+										i.fa.fa-search
+						.form-group
+							.input-group
+								input#txt-sku.form-control.input-value(type="text", placeholder="รหัสสินค้า(SKU)...")
+								span.input-group-btn
+									button.btn.btn-primary.btn-sku(type="button")
+										i.fa.fa-search
+			.col-md-6
+				.col-md-6.col-md-offset-3
+					form.form-horizontal.padding-10
+						.form-group
+							.input-group
+								input#txt-box.form-control.input-value(type="text", placeholder="บาร์โค้ดกล่อง...")
+								span.input-group-btn
+									button.btn.btn-primary.btn-box(type="button")
+										i.fa.fa-search
+						.form-group
+							.input-group
+								input#txt-product.form-control.input-value(type="text", placeholder="บาร์โค้ดสินค้า...")
+								span.input-group-btn
+									button.btn.btn-primary.btn-product(type="button")
+										i.fa.fa-search	
+						.form-group
+							.input-group	
+								select.select-row#cbb-row.form-control
+									option พิมพ์ใบตรวจสต๊อกตามแถว 
+									option A
+									option B
+									option C
+									option D
+									option E
+									option F
+									option G
+									option H
+									option I
+									option J
+									option K
+									option L
+									option M
+									option N
+									option O
+									option P
+									option Q
+									option R
+									option S
+									option T
+									option U
+									option V
+									option W
+									option X
+									option Y
+									option Z
+								span.input-group-btn
+									button#btn-print.btn.btn-primary.btn-box(type="button")
+										i.fa.fa-print
+			.col-md-12
+				#dv-loading_data.text-center.hidden
+					i.fa.fa-spinner.fa-pulse.fa-fw
+					| &nbsp; Loading...
+				#dv-no_data.text-center.text-danger.hidden
+					i.fa.fa-exclamation-triangle
+					| &nbsp; No Data
+				.wait.hidden
+					h1#orderNo.font-28.margin-top-10.margin-bottom-15.text-center.hidden
+					.table-responsive
+						table#tb-result.table.table-striped.table-condensed.table-hover.wait
+							thead
+								tr
+									th.text-center(width='20') รหัสสินค้า
+									th.text-center ชื่อสินค้า และสถานที่
+							tbody
+				.wait2.hidden
+					h1#barcode.font-28.margin-top-10.margin-bottom-15.text-center.hidden
+					.col-md-6.text-right.padding-10
+						p
+							strong เลขที่กล่อง
+						p
+							strong เลขที่ชั้น
+						p
+							strong ชื่อสินค้า
+						p
+							strong จำนวนสินค้าในกล่อง
+					.col-md-6.text-left.padding-10
+						p#lbl-box
+						p#lbl-shelf
+						p#lbl-product-name
+						p#lbl-qty
+					.col-md-12
+						.text-center
+							button.btn.btn-danger.submit-box.hidden(type="button")
+								i.fa.fa-trash
+									| &nbsp; ลบกล่องออกจากชั้น 
+							button.btn.btn-danger.submit-product.hidden(type="button")
+								i.fa.fa-trash
+									| &nbsp; ลบสินค้าออกจากกล่อง
+
+	#detailModal.modal.fade(tabindex='-1', role='dialog')
+		.modal-dialog.modal-lg(role='document')
+			.modal-content
+				.modal-body
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4
+						.text-center
+							img#m-image(width="300", height="300", src='https://src.remaxthailand.co.th/img/Remax/product/default.jpg')
+						p
+						p#m-sku.text-center
+						p.line
+						b#m-productName 
+						p.line
+						p#m-location

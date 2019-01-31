@@ -1,0 +1,56 @@
+extends layout
+
+block content
+	.pinBox.pinWell
+		.row
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12
+				picture
+					source(srcset="https://images.remaxthailand.co.th/web/premium_product/premium.webp", type="image/webp")
+					source(srcset="https://images.remaxthailand.co.th/web/premium_product/premium.jpg", type="image/png")
+					img#detailBtn.pointer.img-responsive.radius(src="https://images.remaxthailand.co.th/web/premium_product/premium.jpg")
+
+	.row.pinRow.padding-10
+		if data.product != '' && data.product != undefined
+			each values in data.product
+				.pinItem
+					.pinBox.pinWell.margin-bottom-15
+						a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product))
+							img.img-product(id=values.product,value-id=values.product).img-responsive.img-popover(src='https://images.remaxthailand.co.th/product/default.jpg')
+						
+						.message
+							.margin-top-5.margin-bottom-5
+								.text-center
+									b.text-info
+										a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product)) #{values.name}	
+								if values.sku != '' && values.sku.substr(0,1) == 'D' 
+									.margin-top-5.pull-left #{values.sku}										
+							.clearfix	
+	p#scroll-top
+		a(href='#')
+			i.fa.fa-chevron-up
+
+	#detailModal.modal.fade(tabindex='-1', role='dialog')
+		.modal-dialog.modal-lg(role='document')
+			.modal-content
+				.modal-body
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4
+						b รับผลิตและออกแบบ สินค้าพรี่เมี่ยม รับทำสินค้าพรีเมี่ยม Premium Gift ของขวัญ ของแถม ของแจกลูกค้า ของชำร่วย ภายใต้สินค้าแบรน Remax, Proda และ WK  พร้อมรับประกันสินค้าจากทาง Remaxthailand
+					p
+						b 1.เลือกสินค้าที่ต้องการ  โดยแจ้งรหัสสินค้า ชื่อสินค้า หรือรูปสินค้า และจำนวนสินค้าที่ต้องการ ติดต่อฝ่ายขายตามช่องทางดังต่อไปนี้
+					p.margin-left-25 - Line Official : @remaxthailand
+					p.margin-left-25 - อีเมล : remaxthai.1@gmail.com
+					p 
+						b 2.เอกสารประกอบการขอใบเสนอราคาสินค้าพรีเมี่ยม ดังต่อไปนี้
+					p.margin-left-25 2.1 ในนามนิติบุคคล   ภพ20 หรือ หนังสือรับรองบริษัท ชื่อเบอร์โทรศัพท์ ผู้รับผิดชอบ และ ที่อยู่ติดต่อ
+					p.margin-left-25 2.2 ในนามบุคคลธรรมดา ชื่อ ที่อยู่ เบอร์โทรศัพท์ ที่สามารถติดต่อได้
+					p 
+						b 3. สำหรับงานสกรีนโลโก้ ส่งไฟล์โลโก้ของบริษัทฯ ที่มีความละเอียดสูง เป็นไฟล์(AI)เท่านั้น สำหรับวางตำแหน่ง  Art Work
+					p 
+						b 4. ยืนยันการสั่งซื้อ โดยเซ็นตอบรับใบเสนอราคา พร้อมเซ็นใบแบบฟอร์ม Approve แบบสกรีนพรีเมี่ยม  และโอนค่ามัดจำ 30-50% ของยอดสั่งซื้อ  (ค่ามัดจำขึ้นอยู่กับประเภทสินค้า) เพื่อเริ่มผลิตสินค้าพรีเมี่ยมทันทีและเสร็จสิ้นตามวันที่กำหนดในใบเสนอราคา
+					p
+						b 5. บริษัทจะแจ้งการจัดส่งสินค้าก่อนล่วงหน้า   ในเขตกรุงเทพฯ จัดส่งฟรี สำหรับต่างจังหวัดทางลูกค้าจะเป็นผู้รับผิดชอบค่าขนส่งเอง
+					p 
+						b 6. เงื่อนไขการรับประกันและการบริการลูกค้าติดต่อ Line Official : @remaxthailand
+					

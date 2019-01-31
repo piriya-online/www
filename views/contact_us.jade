@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	.pinBox.pinWell
+		picture
+			source(srcset="https://images.remaxthailand.co.th/web/contact/contact_us.webp", type="image/webp")
+			source(srcset="https://images.remaxthailand.co.th/web/contact/contact_us.jpg", type="image/jpg")
+			img.img-responsive(src="https://images.remaxthailand.co.th/web/contact/contact_us.jpg")
+		.google-maps
+			iframe(src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d483.99474818057195!2d100.62249895893022!3d13.96110654113808!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d7e00609e4c43%3A0x4c77b9c0c0e6b03f!2sRemax+Thailand!5e0!3m2!1sen!2sth!4v1469603515575', width='1500', height='400', frameborder='0', style='border:0', allowfullscreen='')

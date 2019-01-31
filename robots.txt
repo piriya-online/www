@@ -1,0 +1,83 @@
+User-agent: *
+Disallow: /admin
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SEOkicks-Robot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: WBSearchBot
+Disallow: /
+
+User-agent: SputnikBot
+Disallow: /
+
+User-agent: EasouSpider
+Disallow: /
+
+User-agent: 007ac9
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+User-agent: SMTBot
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: proximic
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+User-agent: Chilkat
+Disallow: /
+
+User-agent: spbot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: Baiduspider-image
+Disallow: /
+
+User-agent: Baiduspider-video
+Disallow: /
+
+User-agent: Baiduspider-news
+Disallow: /
+
+User-agent: Baiduspider-favo
+Disallow: /
+
+User-agent: Baiduspider-cpro
+Disallow: /
+
+User-agent: Baiduspider-ads
+Disallow: /
+
+User-agent: Baidu
+Disallow: /

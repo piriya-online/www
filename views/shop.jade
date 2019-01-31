@@ -1,0 +1,44 @@
+extends layout
+
+block content
+	.pinBox.pinWell.padding-10
+		H2.text-center Remax Shop #{data.shopDetailData.name}
+		if data.shopImage != ''
+			each image in data.shopImage
+				//img.img-responsive.no-radius.img-center_div(src='https://src.remaxthailand.co.th/img/Remax/web/shop/'+data.shopDetailData.shopCode+'/'+image) 
+				img.img-responsive.no-radius.img-center_div(src='https://img.remaxthailand.co.th/web/shop/'+data.shopDetailData.shopCode+'/'+image)
+				p
+		if data.shopDetailData.detail != ''
+			p.margin-top-15
+				strong รายละเอียด
+			p #{data.shopDetailData.detail}
+		p.margin-top-15
+			strong ที่อยู่
+		.margin-left-5
+			if data.shopDetailData.address != ''
+				p #{data.shopDetailData.address}
+			if data.shopDetailData.address2 != ''
+				p #{data.shopDetailData.address2}
+			if data.shopDetailData.subDistrict != ''
+				p แขวง/ตำบล#{data.shopDetailData.subDistrict} 
+			if data.shopDetailData.districtName != ''
+				p เขต/อำเภอ#{data.shopDetailData.districtName}
+			if data.shopDetailData.provinceName != ''	 
+				p จังหวัด#{data.shopDetailData.provinceName} รหัสไปรษณีย์ #{data.shopDetailData.zipcode}
+		if data.shopDetailData.mobile != ''
+			p 
+				strong เบอร์โทรศัพท์ 
+			.margin-left-5
+				#mobileNumber #{data.shopDetailData.mobile}
+		if data.shopDetailData.line != ''
+			p.margin-top-15
+				a(href=data.shopDetailData.line)
+					img(height='36', border='0', alt='เพิ่มเพื่อน', src='https://src.remaxthailand.co.th/img/Remax/web/logo/add_line_logo.png')
+		if data.shopDetailData.facebook != ''
+			p.margin-top-15
+				a(href=data.shopDetailData.facebook)
+					img(height='36', border='0', src='https://src.remaxthailand.co.th/img/Remax/web/logo/facebook_logo.png')
+		.margin-top-15
+		if data.shopDetailData.iframeGoogleMaps != ''
+			.google-maps
+				iframe(src=data.shopDetailData.iframeGoogleMaps, width='1500', height='400', frameborder='0', style='border:0', allowfullscreen='')

@@ -1,0 +1,124 @@
+doctype 5
+html
+	head
+		title Sales Progress
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='shortcut icon', href='/favicon.ico', type='image/x-icon' )
+		link(rel='icon', href='/favicon.ico', type='image/x-icon' )
+		link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css')
+		link(rel='stylesheet', href='https://src.remaxthailand.co.th/libs/bootstrap/3.3.5/css/bootstrap.min.css')
+		link(rel='stylesheet', href='https://src.remaxthailand.co.th/libs/font-awesome/4.4.0/css/font-awesome.min.css')
+		link(rel='stylesheet', href='stylesheets/progress-sales.css')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js')
+		script(src='https://cdn.socket.io/socket.io-1.4.5.js')
+
+	body
+
+		.padding-10
+
+			.pull-right
+				table
+					tr
+						td
+							h2.text-date &nbsp;
+						td(width="160")
+							h2
+								b.text-time 00:00:00
+			.clearfix
+
+			table.table-header(align="center")
+				tr
+					td
+						h1 ปัจจุบัน &nbsp;
+					td
+						h1
+							b#totalPrice.text-sum-current-month
+								i.fa.fa-circle-o-notch.fa-spin
+					td
+						h1 &nbsp; ก้าว (เป้า &nbsp;
+					td
+						h1
+							b#targetPrice.text-avg-current-month 
+								i.fa.fa-circle-o-notch.fa-spin
+					td
+						h1 &nbsp; ก้าว)
+
+			.div-progress(style="margin-top: 44px")
+				#progress-price.progressbar(data-perc='0')
+					.bar.color1
+						span
+					.scale-top
+						span.time-line.time-9
+						span.time-line.time-10
+						span.time-line.time-11
+						span.time-line.time-12
+						span.time-line.time-13
+						span.time-line.time-14
+						span.time-line.time-15
+						span.time-line.time-16
+						span.time-line.time-17
+						span.time-line.time-18
+						span.time-line.time-19
+						span.time-line.time-20
+						span.time-line.time-21
+						span.time-line.time-22
+						span.time-line.time-23
+
+			.div-progress(style="margin-top: 14px")
+				#progress-time.progressbar(data-perc='0')
+					.bar.color2
+						span
+					.scale.scale-time
+						span.time-line.time-9
+						span.time-line.time-10
+						span.time-line.time-11
+						span.time-line.time-12
+						span.time-line.time-13
+						span.time-line.time-14
+						span.time-line.time-15
+						span.time-line.time-16
+						span.time-line.time-17
+						span.time-line.time-18
+						span.time-line.time-19
+						span.time-line.time-20
+						span.time-line.time-21
+						span.time-line.time-22
+						span.time-line.time-23
+
+			.div-message(style="margin-top: 84px")
+				.messageBox
+				table(width="100%")
+					tr
+						td#newsInfo(align="center")
+
+
+			.div-time
+				span.time-9 09:00
+				span.time-14 14:00
+				span.time-19 19:00
+			.div-percent
+				span.time-9 0%
+				span.time-14 50%
+				span.time-19 100%
+
+		footer.footer
+			table#table-bill(width="100%")
+				tr
+					td(style="padding-left: 10px", width="33%")
+						h1 A
+							span#billWait 
+								i.fa.fa-circle-o-notch.fa-spin
+					td(align="center")
+						h1 B
+							span#billPacking 
+								i.fa.fa-circle-o-notch.fa-spin
+					td(style="padding-right: 10px", width="33%", align="right")
+						h1 C
+							span#billSuccess 
+								i.fa.fa-circle-o-notch.fa-spin
+			
+
+
+		script(src='https://src.remaxthailand.co.th/libs/jquery/2.1.4/jquery.min.js')
+		script(src='https://src.remaxthailand.co.th/libs/bootstrap/3.3.5/js/bootstrap.min.js')
+		script(src='javascripts/progress-sales.js')

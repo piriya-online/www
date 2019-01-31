@@ -1,0 +1,47 @@
+extends layout
+
+block content						
+	.pinBox.pinWell.padding-10
+		h1.page-header.font-28.margin-top-10.margin-bottom-15.text-center WK TME 27-30
+		.row.padding-10
+			.col-md-4.col-md-offset-4
+				form.form-inline.padding-10
+					.form-group
+						.input-group
+							input#product-name.form-control.input-value(type="text", placeholder="Product Name...")
+							span.input-group-btn
+								button.btn.btn-primary.btn-submit(type="button")
+									i.fa.fa-search
+					.form-group.hidden
+						.input-group
+							input#barcode.form-control.input-value(type="text", placeholder="Barcode...")
+							span.input-group-btn
+								button.btn.btn-primary.btn-submit(type="button")
+									i.fa.fa-search
+					.form-group.pull-right
+						button.btn.btn-warning.btn-order(type="button")
+							i.fa.fa-cubes
+			.col-md-6.col-md-offset-3
+				#dv-loading_data.text-center.hidden
+					i.fa.fa-spinner.fa-pulse.fa-fw
+					| &nbsp; Loading...
+				#dv-no_data.text-center.text-danger.hidden
+					i.fa.fa-exclamation-triangle
+					| &nbsp; No Data
+				.wait.hidden
+					table#tb-result.table.table-striped.table-condensed.table-hover.wait
+						thead
+							tr
+								th.text-center(width='80') Name
+								th.text-center(width='20') Price
+								th.text-center(width='20') Stock
+								th.text-center(width='20') Order
+						tbody
+				.wait2.hidden
+					table#tb-result2.table.table-striped.table-condensed.table-hover.wait2
+						thead
+							tr
+								th.text-center(width='20') Order No
+								th.text-center(width='80') Name								
+								th.text-center(width='20') Qty
+						tbody

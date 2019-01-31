@@ -1,0 +1,95 @@
+extends layout
+
+block content
+	.pinBox.pinWell.padding-10
+		.row
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12
+				picture
+					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_reg1.webp", type="image/webp")
+					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_reg1.jpg", type="image/png")
+					img.img-responsive(src="https://images.remaxthailand.co.th/web/shop/shop_reg1.jpg")
+				picture
+					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_reg3.webp", type="image/webp")
+					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_reg3.jpg", type="image/png")
+					img.img-responsive(src="https://images.remaxthailand.co.th/web/shop/shop_reg3.jpg")
+				picture
+					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_reg4.webp", type="image/webp")
+					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_reg4.jpg", type="image/png")
+					img.img-responsive(src="https://images.remaxthailand.co.th/web/shop/shop_reg4.jpg")
+				picture
+					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_zeer.webp", type="image/webp")
+					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_zeer.jpg", type="image/png")
+					img#image.reel.img-responsive.no-radius(src="https://images.remaxthailand.co.th/web/shop/shop_zeer.jpg", width='1500', height='400', data-image='https://images.remaxthailand.co.th/web/shop/shop_zeer_360.jpg', data-stitched='1652', data-orientable='true', data-frames="60", data-speed="-0.05")
+
+	.pinBox.pinWell.padding-10.margin-top-10				
+		#form-loading.row.hidden
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12.margin-top-10
+				.alert.alert-info.text-center.margin-bottom-0
+					.progress.margin-bottom-5
+						#progress.progress-bar.progress-bar-striped.active(style='width: 0%', aria-valuemax='100', aria-valuemin='0', aria-valuenow='0', role='progressbar')
+							span.sr-only
+					i.fa.fa-cog.fa-spin
+					| กำลังส่งข้อมูลเข้าระบบ กรุณารอสักครู่ค่ะ
+							
+		#form-success.row.hidden
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12.margin-top-10
+				.alert.alert-info.text-center.margin-bottom-0  ขอบคุณสำหรับข้อมูล จะมีเจ้าหน้าที่พิจารณา และติดต่อท่านกลับไปค่ะ 
+		
+		#form-input.row.margin-bottom-15
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12
+				h1.page-header.font-28.margin-top-10 สมัครเปิด Shop
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12.margin-bottom-15
+				form
+					.form-group.col-sm-6.text-danger
+						label(for='input') ชื่อ *
+						input#firstname.form-control.required(type='text', placeholder='ชื่อ')
+					.form-group.col-sm-6.text-danger
+						label(for='input') นามสกุล *
+						input#lastname.form-control.required(type='text', placeholder='นามสกุล')
+					.form-group.col-sm-6
+						label(for='input') ชื่อเล่น
+						input#nickname.form-control(type='text', placeholder='ชื่อเล่น')
+					.form-group.col-sm-6.text-danger
+						label(for='input') เบอร์โทรศัพท์ *
+						input#mobile.form-control.required(type='text', maxlength='10', placeholder='เบอร์โทรศัพท์')
+					.form-group.col-sm-6.text-danger
+						label(for='input') เวลาที่สะดวกในการติดต่อ *
+						select#time.form-control.col-sm-6
+							option 08:00 - 12:00
+							option 12:00 - 15:00
+							option 15:00 - 18:00
+							option 18:00 - 22:00
+					.form-group.col-sm-12.text-danger
+						label(for='input') ที่อยู่ *
+						input#address.form-control.required(type='text', placeholder='ที่อยู่')
+					.form-group.col-sm-3
+						label(for='input') แนบภาพถ่ายหน้าร้าน
+						input#file1.form-control(type='file', placeholder='')
+					.form-group.col-sm-3
+						label(for='input')   
+						input#file2.form-control(type='file', placeholder='')
+					.form-group.col-sm-3
+						label(for='input')   
+						input#file3.form-control(type='file', placeholder='')
+					.form-group.col-sm-3
+						label(for='input')   
+						input#file4.form-control(type='file', placeholder='')
+				.col-xs-12.col-sm-12.col-md-12.col-lg-12.text-center
+					span#btn-register.btn.btn-warning.btn-lg ยืนยันข้อมูล
+		.clearfix
+	.row.pinRow.padding-10
+		if data.shopDetail != '' && data.shopDetail != undefined
+			each values in data.shopDetail
+				.pinItem
+					.pinBox.pinWell.margin-bottom-15
+						a(href='/shop/'+values.shopCode)
+							img.img-product(id=values.shopCode,value-id=values.shopCode).img-responsive.img-popover(src='https://images.remaxthailand.co.th/product/default.jpg')
+						
+						.message
+							.margin-top-5.margin-bottom-5
+								.text-center
+									b.text-info
+										a(href='/shop/'+values.shopCode) #{values.name} #{values.provinceName}							
+	.row
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12.margin-top-10
+			img.img-responsive.no-radius(src='https://lh3.googleusercontent.com/wr-0e-NG39HYedbiZugUu_LJM4FxfxZR3ZNT5O7kLWQ=w1500-no')

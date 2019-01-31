@@ -1,0 +1,220 @@
+extends layout
+
+block content
+	.row
+		.pinBox.pinWell.padding-10.col-xs-12.col-sm-12.col-md-12.col-lg-12
+			.text-right 
+				a#btn-logout_claim(href="javascript:void(0)").hidden ออกจากระบบ
+			#hTitle.page-header.font-28.margin-top-10 ส่งข้อมูลสินค้าเคลม
+			.col-sm-6.col-md-offset-3
+				#tablogin.hidden
+					form.form-horizontal(role='form')
+						.text-center
+							p กรุณาเข้าสู่ระบบ
+						.form-group
+							.col-sm-6.col-md-offset-3
+								input#username.form-control(type='text', placeholder='ชื่อผู้ใช้')
+						.form-group
+							.col-sm-6.col-md-offset-3
+								input#password.form-control(type='password', placeholder='รหัสผ่าน')
+						.form-group
+							.col-sm-6.col-md-offset-3
+								span#btn-login.btn.btn-info.form-control ลงชื่อเข้าใช้
+						.form-group
+							.col-sm-6.col-md-offset-3
+								.checkbox.pull-left
+									label
+										input#remember(type='checkbox')
+										| คงอยู่ในระบบ
+								.pull-right.margin-top-10
+									a(target='_blank', href='https://24fin-auth.remaxthailand.co.th/register') สมัครสมาชิก
+					.text-center
+						p
+						b#message.text-danger
+						
+				#tabbarcode.hidden
+					form.form-horizontal(role='form')
+						.form-group
+							img.img-responsive.no-radius.center-block.margin-bottom-10(src='https://images.remaxthailand.co.th/web/warranty/claim_1.png')
+						.form-group
+							img.img-responsive.no-radius.center-block(src='https://images.remaxthailand.co.th/web/warranty/barcode.png')
+						.form-group
+							.col-sm-6.col-md-offset-3
+								input#txt-barcode.form-control.required(type='text', placeholder='บาร์โค้ด', maxlength='16')
+						.form-group
+							.text-center
+								span#btn-barcode.btn.btn-warning ตรวจสอบ
+								
+				#tab-warranty-load.alert.alert-claim.alert-info.text-center.margin-bottom-30.hidden(role='alert')
+					i.fa.fa-spinner.fa-pulse
+					|  กรุณารอสักครู่ค่ะ
+				#tab-warranty-not_exist.alert.alert-claim.alert-danger.text-center.margin-bottom-30.hidden(role='alert')  ไม่พบข้อมูลค่ะ 
+				#alert-barcode_exist.alert.alert-claim.alert-danger.text-center.margin-bottom-30.hidden(role='alert')
+					i.fa.fa-exclamation-triangle
+					| สินค้านี้ได้ส่งข้อมูลการเคลมมาแล้ว กรุณาติดต่อสอบถามได้ที่ Line @powerservice
+				img#imgClaim_2.img-responsive.no-radius.center-block.margin-bottom-10.margin-top-10.hidden(src='https://images.remaxthailand.co.th/web/warranty/claim_2.png')
+				
+				#tab-warranty-info.panel.panel-success.hidden
+					.panel-heading ผลการตรวจสอบ 
+					.panel-body
+						p#product.hidden
+						p#barcode.hidden
+						p#lastShop.hidden
+						p#tab-ProductName
+						p#tab-Barcode
+						p#tab-warrantyStatus
+				
+				#dv-claim.hidden
+					strong.margin-top-15 รายละเอียดสินค้าเคลม
+					form#claim_info
+						.form-group
+							label.text-danger(for='textarea') * กรุณาระบุอาการเสียของสินค้าเคลมให้ชัดเจน
+							textarea#claim_description.fixed.form-control.txt-require(value='', rows='5', type='text', maxlength='200')
+					.hidden
+						label(for='input') รูปบรรจุภัณฑ์พร้อมสติ๊กเกอร์สีฟ้า
+						input#file1.margin-bottom-10(type='file', placeholder='')
+						label(for='input') รูปบรรจุภัณฑ์พร้อมบาร์โค้ด Remax Thailand
+						input#file2.margin-bottom-10(type='file', placeholder='')
+						label(for='input') รูปสินค้า 1
+						input#file3.margin-bottom-10(type='file', placeholder='')
+						label(for='input') รูปสินค้า 2
+						input#file4.margin-bottom-10(type='file', placeholder='')
+					#alert-claim_info.alert.alert-claim.alert-danger.text-center.margin-bottom-30.hidden(role='alert')  กรุณาระบุอาการของสินค้าเคลม และแนบรูปภาพให้ครบถ้วนค่ะ 
+					strong.margin-top-15 ที่อยู่ที่ใช้ในการส่งสินค้าคืน
+					form#customer_address.form-horizontal(role='form')
+						.form-group
+							label.col-sm-3.control-label(for='txt-name') ชื่อ
+							.col-sm-6
+								input#txt-firstname.form-control.txt-input.txt-require(type='text', placeholder='ชื่อ', value='')
+						.form-group
+							label.col-sm-3.control-label(for='txt-name') นามสกุล
+							.col-sm-6
+								input#txt-lastname.form-control.txt-input.txt-require(type='text', placeholder='นามสกุล', value='')
+						.form-group
+							label.col-sm-3.control-label(for='txt-name') ชื่อผู้ติดต่อ
+							.col-sm-6
+								input#txt-nickname.form-control.txt-input(type='text', placeholder='ชื่อผู้ติดต่อ', value='')
+						.form-group
+							label.col-sm-3.control-label(for='txt-name') ที่อยู่
+							.col-sm-6
+								input#txt-address.form-control.txt-input.txt-require(type='text', placeholder='ที่อยู่', value='')
+						.form-group
+							label.col-sm-3.control-label(for='txt-name') ที่อยู่ (ต่อ)
+							.col-sm-6
+								input#txt-address2.form-control.txt-input(type='text', placeholder='ที่อยู่ (ต่อ)', value='')
+						.form-group
+							label.col-sm-3.control-label(for='txt-name') จังหวัด
+							.col-sm-6
+								select#province.form-control(data-selected='')
+						.form-group
+							label.col-sm-3.control-label(for='txt-name') เขต/อำเภอ
+							.col-sm-6
+								select#district.form-control(data-selected='', data-zipcode='')
+						.form-group
+							label.col-sm-3.control-label(for='txt-name') แขวง/ตำบล
+							.col-sm-6
+								input#txt-sub_district.form-control.txt-input.txt-require(type='text', placeholder='แขวง/ตำบล', value='')
+						.form-group
+							label.col-sm-3.control-label(for='txt-name') รหัสไปรษณีย์
+							.col-sm-6
+								input#txt-zipcode.form-control.txt-input.txt-require(type='text', placeholder='รหัสไปรษณีย์')
+						.form-group
+							label.col-sm-3.control-label(for='txt-name') เบอร์โทรศัพท์
+							.col-sm-6
+								input#txt-tel.form-control.txt-input.txt-require(type='text', placeholder='เบอร์โทรศัพท์')
+						.form-group
+							label.col-sm-3.control-label(for='txt-name') อีเมล
+							.col-sm-6
+								input#txt-email.form-control.txt-input(type='text', placeholder='อีเมล')
+						.form-group
+							label.col-sm-3.control-label(for='txt-name') Line ID
+							.col-sm-6
+								input#txt-lineid.form-control.txt-input(type='text', placeholder='Line ID')
+						.form-group.text-center
+							span#btn-submit_claiminfo.btn.btn-warning ยืนยันข้อมูล
+							
+				#dv-lineat.hidden
+					.text-center
+						H3 ที่อยู่ที่ใช้ในการส่งสินค้าเคลม
+					.col-md-6.col-md-offset-3							
+						p
+							b ศูนย์บริการ รีแมค ไทยแลนด์ 
+						p
+							b (Remax Thailand)
+						p 200/38 หมู่ 5 ต.บางรักน้อย
+						p อำเภอเมือง จังหวัดนนทบุรี
+						p รหัสไปรษณีย์ 11000
+						p
+							b โทรศัพท์ 081-8288-833
+						.clearfix.line.margin-bottom-5
+					.col-md-10.col-md-offset-1
+						.text-center.margin-top-15
+							p#claimNo3
+							p
+							h3
+								p 
+									u.text-danger กรุณาส่งเลขที่การเคลมด้านบน
+								p 
+									u.text-danger พร้อมเลขพัสดุที่จัดส่งสินค้า
+									|&nbsp;&nbsp;มาที่ 
+								p LINE: @POWERSERVICE
+					.col-md-6.col-md-offset-3
+						.form-group
+							img.img-responsive.no-radius.center-block(src='https://images.remaxthailand.co.th/web/warranty/qr_powerservice.jpg')
+								
+				#dv-done.hidden
+					.text-center
+						H3.text-danger เสร็จสิ้นขั้นตอนการส่งเคลม
+					.text-center
+						p#claimNo_done
+						p
+						h3
+							p
+								u.text-danger กรุณาส่งเลขที่การเคลมด้านบน
+							p 
+								u.text-danger พร้อมเลขพัสดุที่จัดส่งสินค้า
+								|&nbsp;&nbsp;มาที่ 
+							p LINE: @POWERSERVICE
+					.text-center
+						H3.text-danger ขอบคุณค่ะ
+				#dv-claim_info.panel.panel-default.hidden
+					.panel-heading รายละเอียด
+					.panel-body
+						#claim-Massage.alert.alert-success.text-center(role='alert')
+						p#claim-ClaimDate.text-right
+						p#claim-ClaimNo
+						p#claim-ClaimStatus
+						p#claim-ProductName
+						p#claim-Barcode
+						p#claim-Description
+						p.margin-top-15
+							strong ที่อยู่ที่ใช้ในการส่งสินค้าคืน (กรุณาตรวจสอบความถูกต้อง)							
+						.margin-left-5
+							p#sum-name
+							p#sum-address
+							p#sum-address2
+							p#sum-location
+							p#sum-tel
+							p#sum-email
+							p#sum-lineid
+					.row.margin-bottom-15
+						.col-md-6
+							.text-center.margin-top-10
+								span#btn-claim_pre.btn.btn-warning							
+									i.fa.fa-arrow-left
+									|&nbsp;แก้ไขข้อมูล
+						.col-md-6
+							.text-center.margin-top-10
+								span#btn-claim_next.btn.btn-info
+									|ยืนยัน&nbsp;
+									i.fa.fa-check 
+				#form-loading.row.hidden
+					.col-xs-12.col-sm-12.col-md-12.col-lg-12.margin-top-10
+						.alert.alert-info.text-center.margin-bottom-10
+							.progress.margin-bottom-5
+								#progress.progress-bar.progress-bar-striped.active(style='width: 0%', aria-valuemax='100', aria-valuemin='0', aria-valuenow='0', role='progressbar')
+									span.sr-only
+							i.fa.fa-cog.fa-spin
+							|&nbsp;กำลังส่งข้อมูลเข้าระบบ กรุณารอสักครู่ค่ะ
+		.pinBox.pinWell.padding-10.col-xs-12.col-sm-12.col-md-12.col-lg-12.margin-top-15
+			img.img-responsive(src='https://images.remaxthailand.co.th/web/warranty/condition-01.png')

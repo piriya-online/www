@@ -1,0 +1,10 @@
+{
+  "name"             : "www",
+  "script"           : "/data/www/production/prodathailand/www/app.js",
+  "error_file"       : "/data/www/log/prodathailand/www.error.txt",
+  "out_file"         : "/data/www/log/prodathailand/www.out.txt",
+  "instances"        : 2,
+  "watch"            : true,
+  "ignore_watch"      : ["[\\/\\\\]\\./", "node_modules", ".svn"],
+  "log_date_format"  : "YYYY-MM-DD HH:mm:ss"
+}

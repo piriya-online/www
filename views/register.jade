@@ -1,0 +1,89 @@
+extends layout
+
+block content
+	.pinBox.pinWell.padding-10
+		.row
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12
+				img.img-responsive.no-radius(src="https://lh3.googleusercontent.com/6aaedhZzAlcwqryAWHKR2a_45lMFGEDJ3ppYoLlgL6k=w1500-no")
+				img.img-responsive.no-radius(src="https://lh3.googleusercontent.com/FSmXAMywZRza7w9GwIy4rwJpwIjsfGZViHPVTVayoN0=w1500-no")
+				img.img-responsive.no-radius(src="https://lh3.googleusercontent.com/gTsFwWfjGKbvNBnEUzRWIvWEMujhpZkE35D3hqMLNl8=w1500-no")
+				img.img-responsive.no-radius(src="https://lh3.googleusercontent.com/vcAEkL-EDwmeCuZxDaOgUruVbQtDI_gV_3G9K-g6bpM=w1500-no")
+				img.img-responsive.no-radius(src="https://lh3.googleusercontent.com/JZ7TTgN65CchcqUv8TDYlMA8fl4JuacSZdaqCfv884k=w1500-no")
+				img.img-responsive.no-radius(src="https://lh3.googleusercontent.com/N_YmKolIZqXYCKmuJhUxS-CNzRrPpnmKa2O2FrNqxQ4=w1500-no")
+				img.img-responsive.no-radius(src="https://lh3.googleusercontent.com/pVBCQ31_o1-3TPVv-iL0X0AGVkySnLlee_n2WRmYilI=w1500-no")
+
+		#form-loading.row.hidden	
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12.margin-top-10
+				.alert.alert-info.text-center.margin-bottom-0
+					.progress.margin-bottom-5
+						#progress.progress-bar.progress-bar-striped.active(style='width: 0%', aria-valuemax='100', aria-valuemin='0', aria-valuenow='0', role='progressbar')
+						span.sr-only
+					i.fa.fa-cog.fa-spin
+					| กำลังส่งข้อมูลเข้าระบบ กรุณารอสักครู่ค่ะ
+		
+		#form-success.row.hidden
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12.margin-top-10
+				.alert.alert-info.text-center.margin-bottom-0  ขอบคุณสำหรับข้อมูล จะมีเจ้าหน้าที่พิจารณา และติดต่อท่านกลับไปค่ะ 
+
+		#form-input.row.margin-bottom-15
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12
+				h1.page-header.font-28.margin-top-10 สมัครตัวแทนจำหน่าย
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12.margin-bottom-15
+				form
+					.form-group.col-sm-6.text-danger
+						label(for='input') ชื่อ *
+						input#firstname.form-control.required(type='text', placeholder='ชื่อ')
+					.form-group.col-sm-6.text-danger
+						label(for='input') นามสกุล *
+						input#lastname.form-control.required(type='text', placeholder='นามสกุล')
+					.form-group.col-sm-6
+						label(for='input') ชื่อเล่น
+						input#nickname.form-control(type='text', placeholder='ชื่อเล่น')
+					.form-group.col-sm-6.text-danger
+						label(for='input') ท่านสนใจเป็นตัวแทนในจังหวัด *
+						select#province.form-control
+					.form-group.col-sm-6.text-danger
+						label(for='input') เบอร์โทรศัพท์ *
+						input#mobile.form-control.required(type='text', maxlength='10', placeholder='เบอร์โทรศัพท์')
+					.form-group.col-sm-6.text-danger
+						label(for='input') เวลาที่สะดวกในการติดต่อ *
+						select#time.form-control.col-sm-6
+							option 08:00 - 12:00
+							option 12:00 - 15:00
+							option 15:00 - 18:00
+							option 18:00 - 22:00
+					.form-group.col-sm-12.text-danger
+						label(for='input') ที่อยู่ *
+						input#address.form-control.required(type='text', placeholder='ที่อยู่')
+					.form-group.col-sm-12.text-danger
+						label(for='input')
+							| กรุณาแนะนำประวัติของท่าน หรือกิจการ หรือรูปแบบการจำหน่ายของท่าน เพื่อให้เรารู้จักท่าน โดยย่อ *
+						input#history.form-control.required(type='text', placeholder='ประวัติโดยย่อ')
+					.form-group.col-sm-12.text-danger
+						label(for='input') เหตุใดจึงสนใจเป็นตัวแทนจำหน่าย *
+						input#reason.form-control.required(type='text', placeholder='สาเหตุที่สนใจ')
+					.form-group.col-sm-12.text-danger
+						label(for='input') ความคาดหวังเมื่อเป็นตัวแทนจำหน่าย *
+						input#expect.form-control.required(type='text', placeholder='ความคาดหวัง')
+					.form-group.col-sm-12.text-danger
+						label(for='input') ท่านมีความคิดเห็นอย่างไร เกี่ยวกับการแข่งขันเพื่อความอยู่รอดในธุรกิจ *
+						input#comment.form-control.required(type='text', placeholder='ความคิดเห็น')
+					.form-group.col-sm-3
+						label(for='input') แนบภาพถ่ายหน้าร้าน (ถ้ามี)
+						input#file1.form-control(type='file', placeholder='')
+					.form-group.col-sm-3
+						label(for='input')   
+						input#file2.form-control(type='file', placeholder='')
+					.form-group.col-sm-3
+						label(for='input')   
+						input#file3.form-control(type='file', placeholder='')
+					.form-group.col-sm-3
+						label(for='input')   
+						input#file4.form-control(type='file', placeholder='')
+				.col-xs-12.col-sm-12.col-md-12.col-lg-12.text-center
+					span#btn-register.btn.btn-warning.btn-lg สมัครตัวแทนจำหน่าย
+		.row
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12.margin-top-10
+				img.img-responsive.no-radius(src='https://lh3.googleusercontent.com/wr-0e-NG39HYedbiZugUu_LJM4FxfxZR3ZNT5O7kLWQ=w1500-no')
+
+	

@@ -1,0 +1,217 @@
+extends layout
+
+block content
+	.pinBox.pinWell.padding-10
+		.row
+			.col-xs-12.col-sm-4.col-md-4.margin-bottom-15
+				//img.lazy#img_main.img-thumbnail.img_box_shadow(data-original=(typeof data.productDetail.cover != "undefined" && data.productDetail.cover != "") ? 'https://img.remaxthailand.co.th/500x500/product/#{data.productDetail.sku}/#{data.productDetail.cover}' : 'https://src.remaxthailand.co.th/img/Remax/product/default.jpg', src='https://src.remaxthailand.co.th/img/Remax/product/default.jpg',alt='#{data.productDetail.name}', data-zoom-image="yyy")
+				
+				img#img_main.img-thumbnail.img_box_shadow(src=(typeof data.productDetail.cover != "undefined" && data.productDetail.cover != "") ? 'https://img.remaxthailand.co.th/500x500/product/#{data.productDetail.sku}/#{data.productDetail.cover}' : 'https://src.remaxthailand.co.th/img/Remax/product/default.jpg', alt='#{data.productDetail.name}', data-zoom-image="yyy")
+				
+				if typeof data.productDetail.image != 'undefined' && data.productDetail.image != ''
+					.row
+						each images in data.productDetail.image
+							.col-xs-3.col-sm-3.col-md-3
+								- var vImg= images.replace(' ','')
+								- var vCover= data.productDetail.cover.replace(' ','')
+								//img.lazy.pointer.img-thumbnail(data-original='https://img.remaxthailand.co.th/100x100/product/#{data.productDetail.sku}/#{images.replace(' ','')}', src='https://src.remaxthailand.co.th/img/Remax/product/default.jpg', alt='#{data.productDetail.name}', class='pointer img-thumbnail img_small_list' + ((vImg == vCover) ? " active" : ""))
+								
+								img.pointer.img-thumbnail(src="https://img.remaxthailand.co.th/100x100/product/#{data.productDetail.sku}/#{images.replace(' ','')}",alt='#{data.productDetail.name}', class='pointer img-thumbnail img_small_list' + ((vImg == vCover) ? " active" : "")))								
+				
+				.row.margin-top-15
+					.col-xs-12.margin-bottom-15
+						.line
+					if data.productDetail.chargeType != ''
+						.col-xs-4.bold.text-right.small
+							|หัวชาร์จแบบ
+						.col-xs-8
+							| #{data.productDetail.chargeType}
+					
+					if data.productDetail.deviceSupport != ''
+						.col-xs-4.bold.text-right.small
+							|อุปกรณ์ที่รองรับ
+						.col-xs-8
+							| #{data.productDetail.deviceSupport}
+					
+					if data.productDetail.material != ''
+						.col-xs-4.bold.text-right.small
+							|วัสดุ/ผิวสัมผัส
+						.col-xs-8 
+							| #{data.productDetail.material}
+					
+					if data.productDetail.width > 0
+						.col-xs-4.bold.text-right.small.hidden
+							|กว้าง
+						.col-xs-8.hidden 
+							| #{data.productDetail.width} mm.
+					
+					if data.productDetail.length > 0
+						.col-xs-4.bold.text-right.small.hidden
+							|ยาว
+						.col-xs-8.hidden 
+							| #{data.productDetail.length} mm.
+					
+					if data.productDetail.height > 0
+						.col-xs-4.bold.text-right.small.hidden
+							|สูง
+						.col-xs-.hidden 
+							| #{data.productDetail.height} mm.
+					
+					if data.productDetail.weight == 0.00123
+						.col-xs-4.bold.text-right.small.hidden
+							|น้ำหนัก
+						.col-xs-8.hidden 
+							| #{data.productDetail.weight} g. 
+					
+					if data.productDetail.grossWeight > 0
+						.col-xs-4.bold.text-right.small.hidden
+							|น้ำหนักรวม
+						.col-xs-8.hidden 
+							| #{data.productDetail.grossWeight} Kg.
+					
+					if data.productDetail.madeIn != ''
+						.col-xs-4.bold.text-right.small
+							|ผลิตในประเทศ
+						.col-xs-8 
+							| #{data.productDetail.madeIn}
+					
+					if data.productDetail.standard != ''
+						.col-xs-4.bold.text-right.small
+							|มาตรฐาน
+						.col-xs-8 
+							| #{data.productDetail.standard}
+					
+					if data.productDetail.standard != ''
+						.col-xs-12.text-center
+							if data.productDetail.standard.indexOf('CE') != -1
+								picture
+									source(srcset="https://images.remaxthailand.co.th/web/icon/logo-ce.webp", type="image/webp")
+									source(srcset="https://images.remaxthailand.co.th/web/icon/logo-ce.png", type="image/png")
+									img(src="https://images.remaxthailand.co.th/web/icon/logo-ce.png")
+							if data.productDetail.standard.indexOf('FCC') != -1
+								picture
+									source(srcset="https://images.remaxthailand.co.th/web/icon/logo-fcc.webp", type="image/webp")
+									source(srcset="https://images.remaxthailand.co.th/web/icon/logo-fcc.png", type="image/png")
+									img(src="https://images.remaxthailand.co.th/web/icon/logo-fcc.png")
+							if data.productDetail.standard.indexOf('RoHS') != -1
+								picture
+									source(srcset="https://images.remaxthailand.co.th/web/icon/logo-rohs.webp", type="image/webp")
+									source(srcset="https://images.remaxthailand.co.th/web/icon/logo-rohs.png", type="image/png")
+									img(src="https://images.remaxthailand.co.th/web/icon/logo-rohs.png")
+					if data.productDetail.youtube != '' && typeof data.productDetail.youtube != 'undefined'
+						.col-xs-12.text-center
+							.embed-responsive.embed-responsive-16by9
+								iframe.embed-responsive-item(src='https://www.youtube.com/embed/#{data.productDetail.youtube}', frameborder='0', allowfullscreen='')
+							
+			.col-xs-12.col-sm-8.col-md-8
+				h1.font-24.margin-top-10
+					strong#product(data-id='#{data.productDetail.id}') #{data.productDetail.name}
+				if data.productDetail.model != ''
+					h2.font-16.margin-top-0 รุ่น 
+						strong #{data.productDetail.model}
+				.pull-left
+					if data.productDetail.isPremium == false
+						if typeof data.productDetail.warranty != 'undefined' && data.productDetail.warranty > 0
+							span.label.label-success รับประกันสินค้า 
+								if data.productDetail.warranty >= 365
+									| #{data.productDetail.warranty/365} ปี
+								else if data.productDetail.warranty >= 30
+									| #{data.productDetail.warranty/30} เดือน
+								else
+									| #{data.productDetail.warranty} วัน
+							span.small  โดย Remax (Thailand)
+					.small.margin-top-5
+						i.fa.fa-lg.fa-star.fav-orange.margin-right-1
+						i.fa.fa-lg.fa-star.fav-orange.margin-right-1
+						i.fa.fa-lg.fa-star.fav-orange.margin-right-1
+						i.fa.fa-lg.fa-star.fav-orange.margin-right-1
+						i.fa.fa-lg.fa-star-half-o.fav-orange.margin-right-1
+				.clearfix
+				.row.margin-top-10
+					.col-sm-12
+						.line
+						if data.productDetail.isPremium == false	
+							.col-sm-3.col-xs-6.margin-top-10
+								.small.text-primary ราคาปลีก
+								.margin-bottom-0.margin-top-0
+									if typeof data.productDetail.price == 'undefined' || data.productDetail.price == 0
+										| ยังไม่กำหนดราคา
+									else
+										h3.margin-bottom-0.margin-top-0
+											strong.text-danger.numberFormat(data-value="#{data.productDetail.price}") 
+											|  บาท
+								.small ราคาปกติ
+								.small
+							.col-sm-3.col-xs-6.margin-top-10
+								.small.text-primary ราคาส่ง
+								.margin-bottom-0.margin-top-0
+									if typeof data.productDetail.price1 == 'undefined' || data.productDetail.price1 == 0
+										| ยังไม่กำหนดราคา
+									else
+										h3.margin-bottom-0.margin-top-0
+											strong.text-danger.numberFormat(data-value="#{data.productDetail.price1}") 
+											|  บาท
+										.small ประหยัด
+											| #{Math.round((data.productDetail.price-data.productDetail.price1)*100/data.productDetail.price,2)}%
+								.small
+							.col-sm-6.margin-top-10
+								h4#h4-status.margin-top-0 
+									if data.productDetail.stock > 0 || data.productDetail.stock == -99
+										.text-success มีสินค้า
+									else if data.productDetail.stock <= 0
+										.text-danger สินค้าหมด
+								.small จัดส่งสินค้าภายใน 
+									strong 1-2 
+									| วันทำการ
+									br
+									|(ยกเว้นวันอาทิตย์ และวันหยุดนักขัตฤกษ์)
+								.small จัดจำหน่ายและดำเนินการโดย Remax (Thailand)
+							.col-sm-12.margin-top-10
+								.line
+						if typeof data.productDetail.detail != 'undefined' && data.productDetail.detail != ''
+							.row.margin-top-15
+								h4.col-xs-12 รายละเอียดเกี่ยวกับสินค้า
+								.col-xs-12.margin-bottom-15
+									ul
+										each details in data.productDetail.detail
+											li #{details}
+											
+						if typeof data.productDetail.specialProperties != 'undefined' && data.productDetail.specialProperties != ''
+							.row
+								h4.col-xs-12 คุณสมบัติพิเศษ
+								.col-xs-12.margin-bottom-15
+									ul
+										each specialProperties in data.productDetail.specialProperties
+											li #{specialProperties}
+						
+						if typeof data.productDetail.howToUse != 'undefined' && data.productDetail.howToUse != ''
+							.row
+								h4.col-xs-12 วิธีใช้งาน
+								.col-xs-12.margin-bottom-15
+									ul
+										each howToUse in data.productDetail.howToUse
+											li #{howToUse}	
+
+						if typeof data.productDetail.inBox != 'undefined' && data.productDetail.inBox != ''
+							.row
+								h4.col-xs-12 อุปกรณ์ภายในกล่อง
+								.col-xs-12.margin-bottom-15
+									ul
+										each inBox in data.productDetail.inBox
+											li #{inBox}	
+
+						if typeof data.productDetail.imageDetail != 'undefined' && data.productDetail.imageDetail != ''
+							.row.margin-top-15
+								each images in data.productDetail.imageDetail
+									.col-xs-12
+										img.lazy.img-responsive.no-radius(alt="#{data.productDetail.name}", data-original='https://img.remaxthailand.co.th/product/#{data.productDetail.sku}/#{images}')					
+						.col-md-6.col-md-offset-3
+							if data.productDetail.downloadLink != '' &&  data.productDetail.downloadLink != undefined
+								.text-center
+									a(href=data.productDetail.downloadLink)
+										img.img-responsive(src="https://www.remaxthailand.co.th/img/apk_download.png")										
+							.text-center
+								img(src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://www.remaxthailand.co.th/product/#{data.productId}")
+	p#scroll-top
+		a(href='#')
+			i.fa.fa-chevron-up

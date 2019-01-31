@@ -1,0 +1,97 @@
+doctype 5
+html
+	head
+		title= data.title
+		meta(charset='UTF-8')
+		meta(lang="th")
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name='description', content='#{data.description}')
+		link(rel='shortcut icon', href='/favicon.ico', type='image/x-icon' )
+		link(rel='icon', href='/favicon.ico', type='image/x-icon' )
+		link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css')
+		link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css')
+		link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js')
+		link(rel='stylesheet', href='#{data.websiteUrl}/stylesheets/style.css')
+	body
+		input#apiUrlSite(type='hidden', value=data.apiUrlSite)
+		input#apiKey(type='hidden', value=data.apiKey)
+		input#shop(type='hidden', value=data.shop)
+		input#memberKey(type='hidden', value=data.memberKey )
+		input#device(type='hidden', value=data.device)
+		
+		.container
+			nav.navbar.navbar-default.navbar-fixed-top.nav-shadow(role='navigation')
+				.container
+					.navbar-header
+						button.navbar-toggle.collapsed(aria-controls='navbar', aria-expanded='false', data-target='#navbar', data-toggle='collapse', type='button')
+							span.sr-only Toggle navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand(href='#{data.systemUrl}')
+							.body-gray
+								img(src='#{data.websiteUrl}/img/remax.png')
+					#navbar.navbar-collapse.collapse
+						ul.nav.navbar-nav
+							li(class=(data.screen == 'index' ? 'active' : ''))
+								a(href='#{data.websiteUrl}') หน้าหลัก
+							li(class=(data.screen == 'about_us' ? 'active' : ''))
+								a(href='#{data.websiteUrl}/about_us') เกี่ยวกับเรา
+							li(class=(data.screen == 'category' ? 'dropdown active' : 'dropdown'))
+								a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+									| หมวดหมู่สินค้า 
+									span.caret
+								ul.dropdown-menu(role='menu')
+									li(class=(data.screen == 'category' && data.categorySelected == 'new' ? 'active' : ''))
+											a(href='#{data.websiteUrl}/category/new') New Arrivals
+									each values in data.category
+										li(class=(data.screen == 'category' && data.categorySelected == values.url ? 'active' : ''))
+											a(href='#{data.websiteUrl}/category/'+values.url)= values.name
+							li(class=(data.screen == 'contact_us' ? 'active' : ''))
+								a(href='#{data.websiteUrl}/contact_us') ติดต่อเรา
+							li(class=(data.screen == 'warranty_condition' ? 'active' : ''))
+								a(href='#{data.websiteUrl}/warranty_condition') การรับประกัน
+							li(class=(data.screen == 'payment' ? 'active' : ''))
+								a(href='#{data.websiteUrl}/payment') วิธีการชำระเงิน
+						form#form-search.navbar-form.navbar-left
+							.form-group
+								.input-group
+										input#txt-search.form-control(type='text', placeholder='ค้นหาสินค้า')
+										span.input-group-btn
+											button#btn-search.btn.btn-flat(type='button')
+												i.fa.fa-search
+
+						ul.nav.navbar-nav.navbar-right	
+							li
+								a(href='https://24fin-backend.remaxthailand.co.th') เข้าสู่ระบบ/สมัครสมาชิก
+							
+			.nav-bottom
+			
+			.bg-white
+				.container.block-content.padding-top-20(role="main")
+					block content
+			.container		
+				hr
+				footer
+					.row
+						.row.text-center
+							.body-gray
+								img.img-responsive.center-block(src='#{data.websiteUrl}/img/dbd.png')
+						.col-lg-12.text-center.margin-top-10
+							p Copyright © 2015 Remax (Thailand) All rights reserved. 
+					
+		script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')		
+		script(src='//cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.3/jquery.lazyload.min.js')
+		script(src='#{data.websiteUrl}/javascripts/jquery.scrollstop.min.js') 
+		script(src='//cdnjs.cloudflare.com/ajax/libs/ScrollToFixed/1.0.8/jquery-scrolltofixed-min.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/reel.js/1.3.0/jquery.reel-min.js')
+		script(src='#{data.websiteUrl}/javascripts/main.js')
+		if (data.script != '' && typeof data.script != 'undefined')
+			script(src='#{data.websiteUrl}#{data.script}')
+		
+			
+		
