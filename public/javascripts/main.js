@@ -64,7 +64,7 @@ $(function() {
         return false;
     });
     $('#btn-search').click(function() {
-        window.location.href = encodeURI('https://www.#{data.websiteDomain}/search/'+$('#txt-search').val());
+        window.location.href = encodeURI(window.location.origin+'/search/'+$('#txt-search').val());
     });
     //--------------End Search Product----------------//
 
@@ -191,7 +191,7 @@ function checkRemaxProduct() {
 function addLink() {
     //Get the selected text and append the extra info
     var selection = window.getSelection(),
-        pagelink = '<br /><br /> บทความจาก : https://www.#{data.websiteDomain}',
+        pagelink = '<br /><br /> บทความจาก : '+window.location.origin,
         copytext = selection + pagelink,
         newdiv = document.createElement('div');
 
