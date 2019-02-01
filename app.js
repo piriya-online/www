@@ -38,6 +38,7 @@ app.get('*', function(req, res) {
 	data.apiUrlSite = config.apiUrlSite;
 	data.apiKey = config.apiKey;
 	data.websiteUrl = config.systemUrl;
+	data.websiteDomain = config.domain;
 	data.systemUrl = config.systemUrl;
 	data.systemName = config.systemName;
 	data.categorySelected = '';
