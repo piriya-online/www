@@ -111,7 +111,7 @@ exports.index = function(req, res, data){
 //## Get Product by Category ##//
 exports.getProductByCategoryPremium = function(req, res, data){
 	try{
-		request.post({headers: { 'referer': 'https://'+req.headers['x-host'] }, url: data.apiUrl+'/product/info',
+		request.post({headers: { 'referer': 'https://'+req.headers['host'] }, url: data.apiUrl+'/product/info',
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shop,
