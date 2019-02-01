@@ -56,7 +56,7 @@ exports.index = function(req, res, data){
 
 	//## Get Category Menu ##//
 	try{
-		request.post({headers: { 'referer': 'https://'+req.headers['x-host'] }, url: data.apiUrl+'/category/info',
+		request.post({headers: { 'referer': 'https://'+req.headers['host'] }, url: data.apiUrl+'/category/info',
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shop
@@ -141,7 +141,7 @@ exports.getProductByCategoryPremium = function(req, res, data){
 
 exports.getProductByCategory = function(req, res, data){
 	try{
-		request.post({headers: { 'referer': 'https://'+req.headers['x-host'] }, url: data.apiUrl+'/product/info',
+		request.post({headers: { 'referer': 'https://'+req.headers['host'] }, url: data.apiUrl+'/product/info',
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shop,
@@ -171,7 +171,7 @@ exports.getProductByCategory = function(req, res, data){
 //## Get Product by Item ##//
 exports.getProductByItem = function(req, res, data){
 	try{
-		request.post({headers: { 'referer': 'https://'+req.headers['x-host'] }, url: data.apiUrl+'/product/info',
+		request.post({headers: { 'referer': 'https://'+req.headers['host'] }, url: data.apiUrl+'/product/info',
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shop,
@@ -203,7 +203,7 @@ exports.getProductByItem = function(req, res, data){
 
 exports.getProductByName = function(req, res, data){
 	try{
-		request.post({headers: { 'referer': 'https://'+req.headers['x-host'] }, url: data.apiUrl+'/product/info',
+		request.post({headers: { 'referer': 'https://'+req.headers['host'] }, url: data.apiUrl+'/product/info',
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shop,
@@ -233,7 +233,7 @@ exports.getProductByName = function(req, res, data){
 
 exports.getShop = function(req, res, data){
 	try{
-		request.post({headers: { 'referer': 'https://'+req.headers['x-host'] }, url: data.apiUrl+'/shop/detail',
+		request.post({headers: { 'referer': 'https://'+req.headers['host'] }, url: data.apiUrl+'/shop/detail',
 			form: {
 				apiKey: data.apiKey,
 				shop: ''
@@ -261,7 +261,7 @@ exports.getShop = function(req, res, data){
 
 exports.getShopDetail = function(req, res, data){
 	try{
-		request.post({headers: { 'referer': 'https://'+req.headers['x-host'] }, url: data.apiUrl+'/shop/detail',
+		request.post({headers: { 'referer': 'https://'+req.headers['host'] }, url: data.apiUrl+'/shop/detail',
 			form: {
 				apiKey: data.apiKey,
 				shop: data.shopCode
