@@ -1,4 +1,4 @@
-var apiUrl = 'https://api.remaxthailand.co.th';
+var apiUrl = 'https://api.#{data.websiteDomain}';
 var claimInfo;
 var chkClaim = false;
 

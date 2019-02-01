@@ -5,16 +5,6 @@ $(function() {
 	loadData();
 	loadNews();
 
-	var socket = io.connect('https://realtime-test.remaxthailand.co.th');
-	socket.on('target_product_checked', function (data) {
-		if(data.checked)
-			loadData();
-	});
-	socket.on('news', function (data) {
-		if(data.news)
-			loadNews();
-	});
-
 	setScale();
 
 	setInterval(function() {
@@ -66,7 +56,7 @@ function setProgress(object){
 }
 
 function loadData(){
-	$.post('https://api.remaxthailand.co.th/sale/targets', {
+	$.post('https://api.#{data.websiteDomain}/sale/targets', {
 		apiKey: 'E64E8666-9A78-45E9-8801-E4C46F0C0E13',
 		shop: 'POWERDDH-8888-8888-B620-48D3B6489999'
 	}, function(data){
@@ -106,7 +96,7 @@ function loadData(){
 }
 
 function loadNews(){
-	$.post('https://api.remaxthailand.co.th/shop/newsInfo', {
+	$.post('https://api.#{data.websiteDomain}/shop/newsInfo', {
 		apiKey: 'E64E8666-9A78-45E9-8801-E4C46F0C0E13',
 		shop: 'POWERDDH-8888-8888-B620-48D3B6489999'
 	}, function(data){

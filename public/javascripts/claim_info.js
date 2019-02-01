@@ -286,7 +286,7 @@ function uploadFile(){
 		}		
 	}  
 };
-//https://img.remaxthailand.co.th/500x500/product/D1600532/1.jpg
+//https://img.#{data.websiteDomain}/500x500/product/D1600532/1.jpg
 function upload(file, index){
 	var fd = new FormData();
 	fd.append("index", index);
@@ -296,7 +296,7 @@ function upload(file, index){
     fd.append('myFile', file);
 
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'https://upload.remaxthailand.co.th', true);
+	xhr.open('POST', 'https://upload.#{data.websiteDomain}', true);
 
 	xhr.upload.onprogress = function(e) {
 		if (e.lengthComputable) {
@@ -527,7 +527,7 @@ function convertDataToArray(sign, data) {
 };
 
 function login() {
-	$.post('https://24fin-api.remaxthailand.co.th/member/login', {
+	$.post('https://24fin-api.#{data.websiteDomain}/member/login', {
 		apiKey: apiKey24,
 		username: $.trim($('#username').val()),
 		password: $('#password').val(),
@@ -558,7 +558,7 @@ function login() {
 };
 
 function logout() {
-	$.post('https://24fin-api.remaxthailand.co.th/member/logout', {
+	$.post('https://24fin-api.#{data.websiteDomain}/member/logout', {
 		apiKey: apiKey24,
 		authKey: getCookie("memberKey")
 	}, function(data) {
@@ -637,7 +637,7 @@ function getCookie(cname) {
 };
 
 function checkUser(){
-	$.post('https://24fin-api.remaxthailand.co.th/member/info/auth', {
+	$.post('https://24fin-api.#{data.websiteDomain}/member/info/auth', {
 		authKey: getCookie("memberKey")
 	}, function(data){
 		if (data.success) {

@@ -9,9 +9,9 @@ block content
                     .pinBox#shopBox.pinWell.margin-bottom-15
                         a(href='#{data.systemUrl}/shop_register')
                             picture
-                                source(srcset="https://images.remaxthailand.co.th/web/box/shop_register.webp", type="image/webp")
-                                source(srcset="https://images.remaxthailand.co.th/web/box/shop_register.jpg", type="image/png")
-                                img.img-responsive(src="https://images.remaxthailand.co.th/web/box/shop_register.jpg")
+                                source(srcset="https://images.#{data.websiteDomain}/web/box/shop_register.webp", type="image/webp")
+                                source(srcset="https://images.#{data.websiteDomain}/web/box/shop_register.jpg", type="image/png")
+                                img.img-responsive(src="https://images.#{data.websiteDomain}/web/box/shop_register.jpg")
                         .message-lg.text-center
                             strong สนใจเปิดช็อป
                 
@@ -19,9 +19,9 @@ block content
                     .pinBox#shopBox.pinWell.margin-bottom-15
                         a(href='#{data.systemUrl}/premium_product')
                             picture
-                                source(srcset="https://images.remaxthailand.co.th/web/box/premium_product.webp", type="image/webp")
-                                source(srcset="https://images.remaxthailand.co.th/web/box/premium_product.jpg", type="image/png")
-                                img.img-responsive(src="https://images.remaxthailand.co.th/web/box/premium_product.jpg")
+                                source(srcset="https://images.#{data.websiteDomain}/web/box/premium_product.webp", type="image/webp")
+                                source(srcset="https://images.#{data.websiteDomain}/web/box/premium_product.jpg", type="image/png")
+                                img.img-responsive(src="https://images.#{data.websiteDomain}/web/box/premium_product.jpg")
                         .message-lg.text-center
                             strong สินค้าพรีเมี่ยม
                         
@@ -33,9 +33,9 @@ block content
                     .pinBox.pinWell.margin-bottom-15
                         a(href='#{data.systemUrl}/category/new')
                             picture
-                                source(srcset="https://images.remaxthailand.co.th/category/new_arrivals/1.webp", type="image/webp")
-                                source(srcset="https://images.remaxthailand.co.th/category/new_arrivals/1.jpg", type="image/png")
-                                img.img-responsive(src="https://images.remaxthailand.co.th/category/new_arrivals/1.jpg")
+                                source(srcset="https://images.#{data.websiteDomain}/category/new_arrivals/1.webp", type="image/webp")
+                                source(srcset="https://images.#{data.websiteDomain}/category/new_arrivals/1.jpg", type="image/png")
+                                img.img-responsive(src="https://images.#{data.websiteDomain}/category/new_arrivals/1.jpg")
                         .message-lg.text-center
                             strong สินค้ามาใหม่
                 each values in data.category
@@ -43,9 +43,9 @@ block content
                         .pinBox.pinWell.margin-bottom-15
                             a(href='#{data.systemUrl}/category/'+values.url)
                                 picture
-                                    source(srcset="https://images.remaxthailand.co.th/category/"+values.url+"/1.webp", type="image/webp")
-                                    source(srcset="https://images.remaxthailand.co.th/category/"+values.url+"/1.jpg", type="image/png")
-                                    img.img-responsive(src="https://images.remaxthailand.co.th/category/"+values.url+"/1.jpg")
+                                    source(srcset="https://images.#{data.websiteDomain}/category/"+values.url+"/1.webp", type="image/webp")
+                                    source(srcset="https://images.#{data.websiteDomain}/category/"+values.url+"/1.jpg", type="image/png")
+                                    img.img-responsive(src="https://images.#{data.websiteDomain}/category/"+values.url+"/1.jpg")
                             .message-lg.text-center
                                 strong= values.name
                             

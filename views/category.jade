@@ -10,15 +10,15 @@ block content
 							if values.youtube
 								.float_div_right.padding-10
 									i.fa.fa-youtube-square.fa-3x.text-danger
-							img.img-product(id=values.product,value-id=values.product).img-responsive.img-popover(src='https://images.remaxthailand.co.th/product/default.jpg')
+							img.img-product(id=values.product,value-id=values.product).img-responsive.img-popover(src='https://images.#{data.websiteDomain}/product/default.jpg')
 						
 						.message
 							.margin-top-5.margin-bottom-5
 								.text-center
 									if values.isNew
-										img(src='https://images.remaxthailand.co.th/web/gif/new.gif')
+										img(src='https://images.#{data.websiteDomain}/web/gif/new.gif')
 									if values.isStockUpdate
-										img(src='https://images.remaxthailand.co.th/web/gif/update.gif')
+										img(src='https://images.#{data.websiteDomain}/web/gif/update.gif')
 									b.text-info
 										a(href='/product/'+values.name.replace('+','').replace(/ /g,'')+'-'+parseInt(values.product)) #{values.name}
 								if values.sku != '' && values.sku.substr(0,1) == 'D'

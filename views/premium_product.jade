@@ -5,9 +5,9 @@ block content
 		.row
 			.col-xs-12.col-sm-12.col-md-12.col-lg-12
 				picture
-					source(srcset="https://images.remaxthailand.co.th/web/premium_product/premium.webp", type="image/webp")
-					source(srcset="https://images.remaxthailand.co.th/web/premium_product/premium.jpg", type="image/png")
-					img#detailBtn.pointer.img-responsive.radius(src="https://images.remaxthailand.co.th/web/premium_product/premium.jpg")
+					source(srcset="https://images.#{data.websiteDomain}/web/premium_product/premium.webp", type="image/webp")
+					source(srcset="https://images.#{data.websiteDomain}/web/premium_product/premium.jpg", type="image/png")
+					img#detailBtn.pointer.img-responsive.radius(src="https://images.#{data.websiteDomain}/web/premium_product/premium.jpg")
 
 	.row.pinRow.padding-10
 		if data.product != '' && data.product != undefined
@@ -15,7 +15,7 @@ block content
 				.pinItem
 					.pinBox.pinWell.margin-bottom-15
 						a(href='/product/'+values.name.replace('+','')+'-'+parseInt(values.product))
-							img.img-product(id=values.product,value-id=values.product).img-responsive.img-popover(src='https://images.remaxthailand.co.th/product/default.jpg')
+							img.img-product(id=values.product,value-id=values.product).img-responsive.img-popover(src='https://images.#{data.websiteDomain}/product/default.jpg')
 						
 						.message
 							.margin-top-5.margin-bottom-5

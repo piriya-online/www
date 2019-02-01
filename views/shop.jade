@@ -5,8 +5,8 @@ block content
 		H2.text-center Remax Shop #{data.shopDetailData.name}
 		if data.shopImage != ''
 			each image in data.shopImage
-				//img.img-responsive.no-radius.img-center_div(src='https://src.remaxthailand.co.th/img/Remax/web/shop/'+data.shopDetailData.shopCode+'/'+image) 
-				img.img-responsive.no-radius.img-center_div(src='https://img.remaxthailand.co.th/web/shop/'+data.shopDetailData.shopCode+'/'+image)
+				//img.img-responsive.no-radius.img-center_div(src='https://images.#{data.websiteDomain}/Remax/web/shop/'+data.shopDetailData.shopCode+'/'+image) 
+				img.img-responsive.no-radius.img-center_div(src='https://img.#{data.websiteDomain}/web/shop/'+data.shopDetailData.shopCode+'/'+image)
 				p
 		if data.shopDetailData.detail != ''
 			p.margin-top-15
@@ -33,11 +33,11 @@ block content
 		if data.shopDetailData.line != ''
 			p.margin-top-15
 				a(href=data.shopDetailData.line)
-					img(height='36', border='0', alt='เพิ่มเพื่อน', src='https://src.remaxthailand.co.th/img/Remax/web/logo/add_line_logo.png')
+					img(height='36', border='0', alt='เพิ่มเพื่อน', src='https://images.#{data.websiteDomain}/Remax/web/logo/add_line_logo.png')
 		if data.shopDetailData.facebook != ''
 			p.margin-top-15
 				a(href=data.shopDetailData.facebook)
-					img(height='36', border='0', src='https://src.remaxthailand.co.th/img/Remax/web/logo/facebook_logo.png')
+					img(height='36', border='0', src='https://images.#{data.websiteDomain}/Remax/web/logo/facebook_logo.png')
 		.margin-top-15
 		if data.shopDetailData.iframeGoogleMaps != ''
 			.google-maps

@@ -5,21 +5,21 @@ block content
 		.row
 			.col-xs-12.col-sm-12.col-md-12.col-lg-12
 				picture
-					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_reg1.webp", type="image/webp")
-					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_reg1.jpg", type="image/png")
-					img.img-responsive(src="https://images.remaxthailand.co.th/web/shop/shop_reg1.jpg")
+					source(srcset="https://images.#{data.websiteDomain}/web/shop/shop_reg1.webp", type="image/webp")
+					source(srcset="https://images.#{data.websiteDomain}/web/shop/shop_reg1.jpg", type="image/png")
+					img.img-responsive(src="https://images.#{data.websiteDomain}/web/shop/shop_reg1.jpg")
 				picture
-					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_reg3.webp", type="image/webp")
-					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_reg3.jpg", type="image/png")
-					img.img-responsive(src="https://images.remaxthailand.co.th/web/shop/shop_reg3.jpg")
+					source(srcset="https://images.#{data.websiteDomain}/web/shop/shop_reg3.webp", type="image/webp")
+					source(srcset="https://images.#{data.websiteDomain}/web/shop/shop_reg3.jpg", type="image/png")
+					img.img-responsive(src="https://images.#{data.websiteDomain}/web/shop/shop_reg3.jpg")
 				picture
-					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_reg4.webp", type="image/webp")
-					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_reg4.jpg", type="image/png")
-					img.img-responsive(src="https://images.remaxthailand.co.th/web/shop/shop_reg4.jpg")
+					source(srcset="https://images.#{data.websiteDomain}/web/shop/shop_reg4.webp", type="image/webp")
+					source(srcset="https://images.#{data.websiteDomain}/web/shop/shop_reg4.jpg", type="image/png")
+					img.img-responsive(src="https://images.#{data.websiteDomain}/web/shop/shop_reg4.jpg")
 				picture
-					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_zeer.webp", type="image/webp")
-					source(srcset="https://images.remaxthailand.co.th/web/shop/shop_zeer.jpg", type="image/png")
-					img#image.reel.img-responsive.no-radius(src="https://images.remaxthailand.co.th/web/shop/shop_zeer.jpg", width='1500', height='400', data-image='https://images.remaxthailand.co.th/web/shop/shop_zeer_360.jpg', data-stitched='1652', data-orientable='true', data-frames="60", data-speed="-0.05")
+					source(srcset="https://images.#{data.websiteDomain}/web/shop/shop_zeer.webp", type="image/webp")
+					source(srcset="https://images.#{data.websiteDomain}/web/shop/shop_zeer.jpg", type="image/png")
+					img#image.reel.img-responsive.no-radius(src="https://images.#{data.websiteDomain}/web/shop/shop_zeer.jpg", width='1500', height='400', data-image='https://images.#{data.websiteDomain}/web/shop/shop_zeer_360.jpg', data-stitched='1652', data-orientable='true', data-frames="60", data-speed="-0.05")
 
 	.pinBox.pinWell.padding-10.margin-top-10				
 		#form-loading.row.hidden
@@ -83,7 +83,7 @@ block content
 				.pinItem
 					.pinBox.pinWell.margin-bottom-15
 						a(href='/shop/'+values.shopCode)
-							img.img-product(id=values.shopCode,value-id=values.shopCode).img-responsive.img-popover(src='https://images.remaxthailand.co.th/product/default.jpg')
+							img.img-product(id=values.shopCode,value-id=values.shopCode).img-responsive.img-popover(src='https://images.#{data.websiteDomain}/product/default.jpg')
 						
 						.message
 							.margin-top-5.margin-bottom-5

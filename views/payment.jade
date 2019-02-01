@@ -9,7 +9,7 @@ block content
 				span.text-info
 					| กรุณาชำระเงินภายใน 48 ชั่วโมง หลังจากยืนยันคำสั่งซื้อเรียบร้อยแล้ว โดยโอนเงินมาที่บัญชี
 				br
-				img.img-responsive(style='border-radius:0px', src='https://www.remaxthailand.co.th/img/remaxthailand.jpg')
+				img.img-responsive(style='border-radius:0px', src='https://www.#{data.websiteDomain}/img/remaxthailand.jpg')
 			.col-xs-12.col-sm-4.col-md-4.col-lg-4
 				p  
 				| หลังจากโอนเงินเรียบร้อยแล้ว กรุณาส่งภาพถ่ายหลักฐานเอกสารการโอนเงิน มาที่
@@ -19,10 +19,10 @@ block content
 						b @RemaxThailand
 						br
 						picture
-							source(srcset="https://images.remaxthailand.co.th/web/line/qr_remaxthailand.webp", type="image/webp")
-							source(srcset="https://images.remaxthailand.co.th/web/line/qr_remaxthailand.jpg", type="image/jpg")
-							img.img-responsive.margin-bottom-5(width='150', style='border-radius:0px', src="https://images.remaxthailand.co.th/web/line/qr_remaxthailand.jpg")
+							source(srcset="https://images.#{data.websiteDomain}/web/line/qr_remaxthailand.webp", type="image/webp")
+							source(srcset="https://images.#{data.websiteDomain}/web/line/qr_remaxthailand.jpg", type="image/jpg")
+							img.img-responsive.margin-bottom-5(width='150', style='border-radius:0px', src="https://images.#{data.websiteDomain}/web/line/qr_remaxthailand.jpg")
 					li ส่ง MMS มาที่เบอร์ 081-267-3388
 					li
 						| ส่งอีเมลมาที่
-						a(href='mailto:sales@remaxthailand.co.th ') sales@remaxthailand.co.th
+						a(href='mailto:sales@#{data.websiteDomain} ') sales@#{data.websiteDomain}

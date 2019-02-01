@@ -27,7 +27,7 @@ block content
 										input#remember(type='checkbox')
 										| คงอยู่ในระบบ
 								.pull-right.margin-top-10
-									a(target='_blank', href='https://24fin-auth.remaxthailand.co.th/register') สมัครสมาชิก
+									a(target='_blank', href='https://24fin-auth.#{data.websiteDomain}/register') สมัครสมาชิก
 					.text-center
 						p
 						b#message.text-danger
@@ -35,9 +35,9 @@ block content
 				#tabbarcode.hidden
 					form.form-horizontal(role='form')
 						.form-group
-							img.img-responsive.no-radius.center-block.margin-bottom-10(src='https://images.remaxthailand.co.th/web/warranty/claim_1.png')
+							img.img-responsive.no-radius.center-block.margin-bottom-10(src='https://images.#{data.websiteDomain}/web/warranty/claim_1.png')
 						.form-group
-							img.img-responsive.no-radius.center-block(src='https://images.remaxthailand.co.th/web/warranty/barcode.png')
+							img.img-responsive.no-radius.center-block(src='https://images.#{data.websiteDomain}/web/warranty/barcode.png')
 						.form-group
 							.col-sm-6.col-md-offset-3
 								input#txt-barcode.form-control.required(type='text', placeholder='บาร์โค้ด', maxlength='16')
@@ -52,7 +52,7 @@ block content
 				#alert-barcode_exist.alert.alert-claim.alert-danger.text-center.margin-bottom-30.hidden(role='alert')
 					i.fa.fa-exclamation-triangle
 					| สินค้านี้ได้ส่งข้อมูลการเคลมมาแล้ว กรุณาติดต่อสอบถามได้ที่ Line @powerservice
-				img#imgClaim_2.img-responsive.no-radius.center-block.margin-bottom-10.margin-top-10.hidden(src='https://images.remaxthailand.co.th/web/warranty/claim_2.png')
+				img#imgClaim_2.img-responsive.no-radius.center-block.margin-bottom-10.margin-top-10.hidden(src='https://images.#{data.websiteDomain}/web/warranty/claim_2.png')
 				
 				#tab-warranty-info.panel.panel-success.hidden
 					.panel-heading ผลการตรวจสอบ 
@@ -160,7 +160,7 @@ block content
 								p LINE: @POWERSERVICE
 					.col-md-6.col-md-offset-3
 						.form-group
-							img.img-responsive.no-radius.center-block(src='https://images.remaxthailand.co.th/web/warranty/qr_powerservice.jpg')
+							img.img-responsive.no-radius.center-block(src='https://images.#{data.websiteDomain}/web/warranty/qr_powerservice.jpg')
 								
 				#dv-done.hidden
 					.text-center
@@ -217,4 +217,4 @@ block content
 							i.fa.fa-cog.fa-spin
 							|&nbsp;กำลังส่งข้อมูลเข้าระบบ กรุณารอสักครู่ค่ะ
 		.pinBox.pinWell.padding-10.col-xs-12.col-sm-12.col-md-12.col-lg-12.margin-top-15
-			img.img-responsive(src='https://images.remaxthailand.co.th/web/warranty/condition-01.png')
+			img.img-responsive(src='https://images.#{data.websiteDomain}/web/warranty/condition-01.png')

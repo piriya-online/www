@@ -1,5 +1,5 @@
 var apiKey = 'E64E8666-9A78-45E9-8801-E4C46F0C0E13';
-var apiUrl = 'https://api.remaxthailand.co.th';
+var apiUrl = 'https://api.#{data.websiteDomain}';
 
 var fileCount = 0;
 var fileProgress = {};
@@ -99,7 +99,7 @@ function upload(file, index){
     
     var xhr = new XMLHttpRequest();
     
-	xhr.open('POST', 'https://upload.remaxthailand.co.th', true);
+	xhr.open('POST', 'https://upload.#{data.websiteDomain}', true);
     
     xhr.upload.onprogress = function(e) {
       if (e.lengthComputable) {
@@ -160,12 +160,12 @@ function loadImage(){
 				for(i=0; i < data.result.length; i++) {
 					if(device == 'desktop'){
 						if(data.result[i].imageCover != "" && typeof data.result[i].imageCover != 'undefined' ){
-							$('img#'+data.result[i].shopCode).attr('src', 'https://img.remaxthailand.co.th/web/shop/'+data.result[i].shopCode+'/'+data.result[i].imageCover)
+							$('img#'+data.result[i].shopCode).attr('src', 'https://img.#{data.websiteDomain}/web/shop/'+data.result[i].shopCode+'/'+data.result[i].imageCover)
 						}
 					} else{
 						if(data.result[i].imageCover != "" && typeof data.result[i].imageCover != 'undefined'){
 							$('img#'+data.result[i].shopCode).addClass('lazy'); 
-							$('img#'+data.result[i].shopCode).attr('data-original', 'https://img.remaxthailand.co.th/web/shop/'+data.result[i].shopCode+'/'+data.result[i].imageCover)
+							$('img#'+data.result[i].shopCode).attr('data-original', 'https://img.#{data.websiteDomain}/web/shop/'+data.result[i].shopCode+'/'+data.result[i].imageCover)
 							$('img.lazy').lazyload();
 						}
 					}		

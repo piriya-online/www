@@ -1,9 +1,9 @@
 .pinItem
 	.pinBox.pinWell.margin-bottom-15
 		picture
-			source(srcset="https://images.remaxthailand.co.th/web/box/check_remax_product.webp", type="image/webp")
-			source(srcset="https://images.remaxthailand.co.th/web/box/check_remax_product.jpg", type="image/png")
-			img.img-responsive(src="https://images.remaxthailand.co.th/web/box/check_remax_product.jpg")	
+			source(srcset="https://images.#{data.websiteDomain}/web/box/check_remax_product.webp", type="image/webp")
+			source(srcset="https://images.#{data.websiteDomain}/web/box/check_remax_product.jpg", type="image/png")
+			img.img-responsive(src="https://images.#{data.websiteDomain}/web/box/check_remax_product.jpg")	
 		.text-center
 			#check_remax_product.padding-10
 				form.form-horizontal
@@ -25,9 +25,9 @@
 						u ของแท้
 					| จาก Remax Thailand ต้องมีสติ๊กเกอร์
 					picture
-						source(srcset="https://images.remaxthailand.co.th/watermark/remax.webp", type="image/webp")
-						source(srcset="https://images.remaxthailand.co.th/watermark/remax.png", type="image/png")
-						img.img-responsive(src="https://images.remaxthailand.co.th/watermark/remax.png")
+						source(srcset="https://images.#{data.websiteDomain}/watermark/remax.webp", type="image/webp")
+						source(srcset="https://images.#{data.websiteDomain}/watermark/remax.png", type="image/png")
+						img.img-responsive(src="https://images.#{data.websiteDomain}/watermark/remax.png")
 				#product-info.alert.alert-remax_barcode.alert-success.margin-bottom-30(role='alert', style='display: none;')
 					p
 						| สินค้ารายการนี้เป็น

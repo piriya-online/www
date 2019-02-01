@@ -98,8 +98,8 @@ function productLocationResponse(data) {
 		for( i=0; i<json.length; i++ ) {
 			var result = json[i];
 
-			html += '<tr data-toggle="modal" data-target="#detailModal" img-product="https://img.remaxthailand.co.th/300x300/product/'+result.sku+'/1.jpg" sku-product="'+result.sku+' ('+result.qty+')" name-product="'+result.name+'" local-product="'+result.location+'">';
-			html += '<td width="20" class="text-center" valign="middle"><img width="150" height="150" src="https://img.remaxthailand.co.th/300x300/product/'+result.sku+'/1.jpg"><p>'+result.sku+' <strong>('+result.qty+')</strong></p></td>';
+			html += '<tr data-toggle="modal" data-target="#detailModal" img-product="https://img.#{data.websiteDomain}/300x300/product/'+result.sku+'/1.jpg" sku-product="'+result.sku+' ('+result.qty+')" name-product="'+result.name+'" local-product="'+result.location+'">';
+			html += '<td width="20" class="text-center" valign="middle"><img width="150" height="150" src="https://img.#{data.websiteDomain}/300x300/product/'+result.sku+'/1.jpg"><p>'+result.sku+' <strong>('+result.qty+')</strong></p></td>';
 			html += '<td class="" valign="middle"><b>'+result.name+'</b><br>'+result.location+'</br></td>';
 			html += '</tr>';
 		}
