@@ -21,7 +21,7 @@ app.set('view engine', 'jade');
 app.use(favicon(__dirname + '/favicon.ico'));
 app.use(methodOverride());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 app.use(robots(__dirname + '/robots.txt'));
 
